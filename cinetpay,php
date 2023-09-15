@@ -1,0 +1,65 @@
+<?php
+require_once 'path/to/cinetpay-php-sdk/autoload.php';
+
+use CinetPay\CinetPay;
+
+// Replace with your CinetPay API credentials
+$publicKey = 'YOUR_PUBLIC_KEY';
+$privateKey = 'YOUR_PRIVATE_KEY';
+
+// Process the payment request
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $amount = $_POST['amount'];
+    $customerName = $_POST['customer_name'];
+    $email = $_POST['email'];
+
+    // Set up CinetPay instance
+    $cinetpay = new CinetPay($publicKey, $privateKey);
+
+    // Generate a unique transaction ID
+    $transactionId = uniqid();
+
+    // Set payment parameters
+    $params = [
+        'amount' => $amount,
+        'customer_name' => $customerName,
+        'email' => $email,
+        'transaction_id' => $transactionId,
+        // Add any additional parameters as required by CinetPay
+    ];
+
+    try {
+        // Initiate payment request
+        $paymentUrl = $cinetpay->generatePaymentUrl($params);
+        
+        // Redirect the user to the payment page
+        header('Location: ' . $paymentUrl);
+        exit;
+    } catch (Exception $e) {
+        // Handle any errors that occurred during the payment request
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Payment</title>
+</head>
+<body>
+    <form method="POST" action="payment.php">
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" id="amount" required>
+
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" name="customer_name" id="customer_name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <input type="submit" value="Pay">
+    </form>
+</body>
+</html>

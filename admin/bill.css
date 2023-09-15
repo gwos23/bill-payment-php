@@ -1,0 +1,42 @@
+.row{
+    display: flex;
+    min-height: 45vh;
+    position: relative;
+}
+h1{
+    text-decoration: underline;
+}
+h4{
+    text-decoration: underline;
+}
+.rent{
+    text-decoration: underline;
+}
+b{
+    text-decoration: underline;
+}
+.btn-primary{
+    width: fit-content;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: rgba(41, 40, 40);
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+input{
+    width: 200%;
+    padding: 10px;
+    margin-top: 5px;
+}
+.form-grop{
+    margin-bottom: 20px;
+}
+body{
+    display: grid;
+    grid-template-columns: 20% 80% 20%;
+}

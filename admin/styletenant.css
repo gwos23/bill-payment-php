@@ -1,0 +1,84 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+} */
+
+.con {
+    display: grid;
+    grid-template-columns: auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+@media(max-width: 700px){
+    .container {
+        display: grid;
+        
+    }
+    .con th{
+        font-size: 5px;
+        border-bottom: 3px solid rgb(41, 40, 40);
+        padding: 5px 0px;
+        font-weight: 100;
+    }
+    .con td{
+        font-weight: 5;
+        padding: 0px 0px;
+        font-size: 0px;
+    }
+}
+.con .Btn_add{
+    width: fit-content;
+    margin-bottom: 20px;
+    background-color: rgba(41, 40, 40);
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+button .Btn_danger{
+    width: fit-content;
+    margin-bottom: 20px;
+    background-color: rgb(238, 31, 31);
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+.con table{
+    color: rgb(41, 40, 40);
+}
+.con th{
+    font-size: 16px;
+    border-bottom: 3px solid rgb(41, 40, 40);
+    padding: 5px 20px;
+    font-weight: 500;
+}
+.con td{
+    font-weight: 400;
+    padding: 5px 30px;
+    font-size: 14px;
+}
+.con tr:nth-child(2n){
+    background-color: #f6f8f8;
+}
+.con tr:nth-child(2n) td{
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
